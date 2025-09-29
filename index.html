@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>السيرة الذاتية المتقدمة</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+body{font-family:"Tahoma",sans-serif;margin:0;padding:0;direction:rtl;display:flex;scroll-behavior:smooth;background:#f7f7f7;color:#111;transition:all 0.3s;}
+nav{width:240px;min-height:100vh;padding:25px 20px;position:fixed;right:0;top:0;border-radius:20px 0 0 20px;box-shadow:0 0 20px rgba(0,0,0,0.4);z-index:1000;transition:all 0.4s ease-in-out;background-color:#f7f7f7;}
+nav h2{text-align:center;font-size:24px;margin-top:0;border-bottom:1px solid #111;padding-bottom:12px;color:#111;transition:color 0.4s;}
+nav ul{list-style:none;padding:0;margin-top:30px;}
+nav ul li{margin:20px 0;opacity:0;transform:translateX(50px);transition:all 0.5s ease;}
+nav ul li.show{opacity:1;transform:translateX(0);}
+nav ul li a{color:#111;text-decoration:none;font-size:18px;display:flex;align-items:center;gap:12px;transition:0.4s, transform 0.3s;position:relative;}
+nav ul li a i{width:25px;text-align:center;transition:transform 0.3s, text-shadow 0.3s;}
+nav ul li a:hover i{transform:scale(1.3);text-shadow:0 0 8px #1abc9c;}
+nav ul li a::before{content:"";position:absolute;right:0;top:50%;transform:translateY(-50%);width:0%;height:3px;background:#1abc9c;transition:width 0.4s;border-radius:2px;}
+nav ul li a:hover::before{width:100%;}
+nav ul li a:hover{color:#1abc9c;}
+body.dark nav{background-color:#222;}
+body.dark nav h2{color:#eee;}
+body.dark nav ul li a{color:#eee;}
+.content{flex:1;margin-right:240px;padding:25px;transition:all 0.3s;}
+header{background:#111;color:#fff;padding:30px 25px;display:flex;align-items:center;gap:25px;flex-wrap:wrap;border-radius:20px;box-shadow:0 10px 30px rgba(0,0,0,0.35);margin-bottom:25px;transition:all 0.3s;}
+.profile-pic{width:150px;height:150px;border-radius:50%;border:4px solid #1abc9c;object-fit:cover;box-shadow:0 6px 15px rgba(0,0,0,0.4);transition:all 0.5s ease;}
+.profile-pic:hover{transform:scale(1.1);box-shadow:0 12px 25px rgba(0,0,0,0.5);}
+.header-info h1{margin:0 0 7px;font-size:32px;transition: color 0.4s;}
+.header-info h1:hover{color:#1abc9c;}
+.header-info p{margin:0;font-size:17px;transition: color 0.4s;}
+.header-info p:hover{color:#16a085;}
+#darkModeBtn,#downloadBtn{background:#1abc9c;border:none;color:#fff;padding:10px 22px;cursor:pointer;border-radius:25px;font-weight:bold;margin-top:12px;transition:0.3s, transform 0.3s, box-shadow 0.3s;}
+#darkModeBtn:hover,#downloadBtn:hover{background:#16a085;transform:translateY(-3px);box-shadow:0 6px 15px rgba(0,0,0,0.3);}
+section{padding:30px 25px;margin-bottom:25px;border-radius:20px;background:#fff;box-shadow:0 10px 30px rgba(0,0,0,0.15);opacity:0;transform:translateY(40px);transition:all 1s ease-out;}
+section:hover{box-shadow:0 20px 40px rgba(0,0,0,0.25);transform:translateY(-5px);background: linear-gradient(145deg,#fefefe,#e8f7f6);}
+section.visible{opacity:1;transform:translateY(0);}
+h2{border-bottom:3px solid #111;padding-bottom:8px;margin-bottom:18px;font-size:26px;transition: color 0.4s;}
+h2:hover{color:#1abc9c;text-shadow:0 0 8px #16a085;}
+.skills .skill{margin:12px 0;}
+.skills .skill-name{margin-bottom:6px;font-weight:bold;transition: color 0.3s;}
+.skills .skill-name:hover{color:#16a085;}
+.progress{background:#eee;border-radius:25px;overflow:hidden;box-shadow:inset 0 2px 5px rgba(0,0,0,0.2);}
+.progress div{height:24px;width:0;background:linear-gradient(90deg,#1abc9c,#16a085);border-radius:25px;line-height:24px;color:#fff;text-align:right;padding-right:8px;transition:width 1.5s ease-in-out;}
+.experience{font-size:32px;font-weight:bold;color:#1abc9c;margin:15px 0;transition: color 0.4s;}
+.experience:hover{color:#16a085;}
+footer{text-align:center;padding:25px;background:#111;color:#fff;border-radius:20px 20px 0 0;box-shadow:0 -6px 20px rgba(0,0,0,0.25);margin-top:25px;transition:background 0.4s;}
+footer:hover{background:#1abc9c;}
+#menuBtn{position:absolute;left:25px;top:25px;background:#1abc9c;color:#fff;border:none;font-size:24px;padding:6px 14px;cursor:pointer;display:none;border-radius:8px;z-index:1100;transition:0.3s;}
+#menuBtn:hover{transform:translateY(-3px);}
+body.dark{background:#111;color:#eee;}
+body.dark header,body.dark footer,body.dark section{background:#222;color:#eee;box-shadow:0 10px 30px rgba(0,0,0,0.6);}
+body.dark section:hover{box-shadow:0 20px 40px rgba(0,0,0,0.8);transform:translateY(-5px);}
+body.dark .progress div{background:linear-gradient(90deg,#1abc9c,#16a085);}
+@media(max-width:768px){nav{transform:translateX(100%);}nav.active{transform:translateX(0);}.content{margin-right:0;}#menuBtn{display:block;}}
+</style>
+</head>
+<body>
+
+<nav id="sidebar">
+<h2>القائمة</h2>
+<ul>
+<li><a href="#info"><i class="fas fa-user"></i>المعلومات</a></li>
+<li><a href="#edu"><i class="fas fa-graduation-cap"></i>التعليم</a></li>
+<li><a href="#exp"><i class="fas fa-briefcase"></i>الخبرات</a></li>
+<li><a href="#skills"><i class="fas fa-laptop-code"></i>المهارات</a></li>
+<li><a href="#projects"><i class="fas fa-folder-open"></i>المشاريع</a></li>
+<li><a href="#courses"><i class="fas fa-chalkboard-teacher"></i>الدورات التدريبية</a></li>
+<li><a href="#awards"><i class="fas fa-trophy"></i>الجوائز والشهادات</a></li>
+<li><a href="#hobbies"><i class="fas fa-heart"></i>الهوايات</a></li>
+</ul>
+</nav>
+
+<div class="content">
+<header>
+<img src="rana.jpg" alt="صورتي" class="profile-pic">
+<div class="header-info">
+<h1> رنا عبدالله سويدان</h1>
+<p>مطور ويب - Frontend Developer</p>
+<button id="darkModeBtn">الوضع الليلي</button>
+<button id="downloadBtn">تحميل PDF</button>
+</div>
+<button id="menuBtn">☰</button>
+</header>
+
+<section id="info">
+<h2>المعلومات الشخصية</h2>
+<p>البريد: <a href="mailto:rana2004abdullah4@gmail.com"
+class="gmail-link">rana2004abdullah4@gmail.com</a></p>
+<p>الهاتف: 736203032</p>
+<p>العنوان: تعز - اليمن</p>
+</section>
+
+<section id="edu">
+<h2>التعليم</h2>
+<ul>
+<li>بكالوريوس تقنية معلومات - جامعة الحكمة (2024 - 2028)</li>
+</ul>
+</section>
+
+<section id="exp">
+<h2>الخبرات العملية</h2>
+<p class="experience" data-years="5">0</p>
+<ul>
+<li>مطور ويب مستقل - تصميم مواقع HTML, CSS, JavaScript</li>
+<li>تدريب في شركة هائل سعيد - تطوير تطبيقات ويب</li>
+</ul>
+</section>
+
+<section id="skills">
+<h2>المهارات</h2>
+<div class="skills">
+<div class="skill"><div class="skill-name">HTML</div><div class="progress"><div data-progress="95%">0%</div></div></div>
+<div class="skill"><div class="skill-name">CSS</div><div class="progress"><div data-progress="90%">0%</div></div></div>
+<div class="skill"><div class="skill-name">JavaScript</div><div class="progress"><div data-progress="80%">0%</div></div></div>
+<div class="skill"><div class="skill-name">React</div><div class="progress"><div data-progress="75%">0%</div></div></div>
+<div class="skill"><div class="skill-name">Git</div><div class="progress"><div data-progress="85%">0%</div></div></div>
+<div class="skill"><div class="skill-name">Python</div><div class="progress"><div data-progress="70%">0%</div></div></div>
+<div class="skill"><div class="skill-name">SQL</div><div class="progress"><div data-progress="65%">0%</div></div></div>
+<div class="skill"><div class="skill-name">Figma</div><div class="progress"><div data-progress="60%">0%</div></div></div>
+<div class="skill"><div class="skill-name">Photoshop</div><div class="progress"><div data-progress="50%">0%</div></div></div>
+<div class="skill"><div class="skill-name">Bootstrap</div><div class="progress"><div data-progress="75%">0%</div></div></div>
+</div>
+</section><section id="projects">
+<h2>المشاريع</h2>
+<ul>
+<li>مشروع تصميم موقع جامعي باستخدام HTML وCSS</li>
+<li>تطبيق بيع كتب باستخدام HTMLوCSS وJavaScript</li>
+</ul>
+</section>
+
+<section id="courses">
+<h2>الدورات التدريبية</h2>
+<ul>
+<li>دورة تطوير واجهات المستخدم - Udemy</li>
+<li>دورة Python للمبتدئين - Coursera</li>
+</ul>
+</section>
+
+<section id="awards">
+<h2>الجوائز والشهادات</h2>
+<ul>
+<li>شهادة أفضل مشروع - جامعة الحكمة</li>
+<li>شهادة إتمام دورة React - Udemy</li>
+</ul>
+</section>
+
+<section id="hobbies">
+<h2>الهوايات</h2>
+<ul>
+<li>الرسم الرقمي والتصميم</li>
+<li>قراءة كتب تطوير الذات والتقنية</li>
+<li>الرياضة واليوغا</li>
+</ul>
+</section>
+
+<footer>
+<p>© 2025 - جميع الحقوق محفوظة</p>
+</footer>
+</div>
+
+<script>
+// الوضع الليلي
+document.getElementById("darkModeBtn").addEventListener("click", () => {
+  document.body.classList.toggle("dark");
+});
+
+// القائمة المتحركة على الأجهزة الصغيرة
+const menuBtn = document.getElementById("menuBtn");
+const sidebar = document.getElementById("sidebar");
+menuBtn.addEventListener("click", () => sidebar.classList.toggle("active"));
+
+// Animate sidebar links
+const sidebarLinks = document.querySelectorAll("nav ul li");
+function showSidebarLinks() {
+  sidebarLinks.forEach((li, index) => {
+    setTimeout(() => { li.classList.add("show"); }, index * 100);
+  });
+}
+showSidebarLinks();
+
+// Sections appear animation
+const sections = document.querySelectorAll("section");
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting) { entry.target.classList.add("visible"); }
+  });
+}, { threshold: 0.2 });
+sections.forEach(section => observer.observe(section));
+
+// Experience counter
+const expCounter = document.querySelector(".experience");
+let years = parseInt(expCounter.getAttribute("data-years")), current = 0;
+const observerExp = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      const interval = setInterval(() => {
+        if(current < years){ current++; expCounter.textContent = current; }
+        else clearInterval(interval);
+      }, 200);
+    }
+  });
+}, { threshold: 0.5 });
+observerExp.observe(expCounter);
+
+// Skills progress animation
+const progressBars = document.querySelectorAll(".progress div");
+const observerProg = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.style.width = entry.target.getAttribute("data-progress");
+      entry.target.textContent = entry.target.getAttribute("data-progress");
+    }
+  });
+}, { threshold: 0.5 });
+progressBars.forEach(bar => observerProg.observe(bar));
+
+// تحميل السيرة الذاتية
+document.getElementById("downloadBtn").addEventListener("click", () => {
+  const blob = new Blob([document.documentElement.outerHTML], {type:"text/html"});
+  const link = document.createElement("a");
+  link.href = URL.createObjectURL(blob);
+  link.download = "CV.html";
+  link.click();
+});
+</script>
+
+</body>
+</html>
